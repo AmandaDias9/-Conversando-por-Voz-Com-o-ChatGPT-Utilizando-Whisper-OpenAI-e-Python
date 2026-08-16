@@ -1,48 +1,56 @@
-# -Conversando-por-Voz-Com-o-ChatGPT-Utilizando-Whisper-OpenAI-e-Python
-🎙️ Conversa por Voz com ChatGPT (Whisper + gTTS)
+# 🎙️ Conversando por Voz com o ChatGPT
 
-Sistema que une Speech-to-Text (Whisper) e Text-to-Speech (gTTS) para permitir uma conversa por voz, multi-idioma, com o ChatGPT.
+> Assistente de voz utilizando **Whisper**, **OpenAI**, **Python** e **gTTS**.
 
-Fluxo: 🎤 você fala → 🧠 Whisper transcreve → 💬 ChatGPT responde → 🔊 gTTS fala a resposta.
+Projeto desenvolvido como parte de um desafio da **DIO**, com o objetivo de criar um assistente capaz de receber perguntas por voz, transformar áudio em texto, gerar uma resposta com Inteligência Artificial e reproduzir essa resposta em áudio.
 
-Estrutura
+---
+
+## 🚀 Sobre o Projeto
+
+O sistema integra tecnologias de **Speech-to-Text** e **Text-to-Speech**, permitindo uma interação por voz com Inteligência Artificial.
+
+O funcionamento acontece da seguinte maneira:
+
+🎤 **Usuário fala**
+
+⬇️
+
+🧠 **Whisper transforma o áudio em texto**
+
+⬇️
+
+💬 **ChatGPT processa a pergunta e gera uma resposta**
+
+⬇️
+
+🔊 **gTTS transforma a resposta em áudio**
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- 🐍 Python
+- 🎙️ OpenAI Whisper
+- 🤖 OpenAI API
+- 🔊 Google Text-to-Speech (gTTS)
+- 🎧 PortAudio
+- 🔐 Variáveis de ambiente com `.env`
+- 🐙 Git e GitHub
+
+---
+
+## 📂 Estrutura do Projeto
+
+```text
 voice-chatgpt/
-├── main.py                # orquestra o fluxo completo
+│
+├── main.py
 ├── requirements.txt
-├── .env.example            # copie para .env e preencha sua chave
+├── .env.example
+│
 └── src/
-    ├── record_audio.py     # grava áudio do microfone
-    ├── transcribe.py       # Whisper: áudio -> texto
-    ├── chat.py              # ChatGPT: texto -> resposta
-    └── speak.py             # gTTS: texto -> áudio
-Como usar
-Clone o repositório e crie um ambiente virtual:
-bash
-   python -m venv venv
-   source venv/bin/activate  # Windows: venv\Scripts\activate
-Instale as dependências:
-bash
-   pip install -r requirements.txt
-
-No Linux pode ser necessário instalar o ffmpeg e o portaudio: sudo apt install ffmpeg portaudio19-dev
-
-Copie .env.example para .env e adicione sua chave da OpenAI:
-bash
-   cp .env.example .env
-Rode o projeto:
-bash
-   python main.py --seconds 5 --language pt
-Diferenças em relação ao lab original (Colab)
-Gravação de áudio feita com sounddevice (funciona localmente, não só no navegador do Colab).
-API da OpenAI atualizada para a versão atual do SDK (from openai import OpenAI), já que openai.ChatCompletion.create foi descontinuado.
-Chave de API lida de variável de ambiente (.env), nunca hardcoded no código.
-Código modularizado em src/ em vez de tudo em um único notebook.
-Ideias para evoluir o projeto (portfólio 😉)
-Trocar o Whisper local pela API whisper-1/gpt-4o-transcribe da OpenAI (mais rápido, sem baixar modelo).
-Detectar o idioma automaticamente em vez de fixar language.
-Criar interface web simples (Streamlit ou Gradio) no lugar do terminal.
-Manter histórico da conversa (lista de mensagens) para permitir contexto entre perguntas.
-Trocar o gTTS por uma voz mais natural (ex: API de TTS da OpenAI).
-Créditos
-
-Baseado no desafio de projeto da DIO — "Conversando Por Voz Com o ChatGPT Utilizando Whisper (OpenAI) e Python".
+    ├── record_audio.py
+    ├── transcribe.py
+    ├── chat.py
+    └── speak.py
