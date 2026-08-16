@@ -1,0 +1,7 @@
+openai>=1.30.0
+openai-whisper
+sounddevice
+scipy
+gTTS
+playsound==1.2.2
+python-dotenv
